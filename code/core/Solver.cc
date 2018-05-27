@@ -1205,7 +1205,6 @@ void Solver::reduceDB()
   for (i = j = 0; i < learnts.size(); i++){
     Clause& c = ca[learnts[i]];
     if (c.lbd()>2 && c.size() > 2 && c.canBeDel() &&  !locked(c) && (i < limit)) {
-    	/////// nadeemHomoKbeer
          removeClause(learnts[i]);
          if(certifiedUNSAT) printDrupClause(c, 1, needExtVar);
          nbRemovedClauses++;
