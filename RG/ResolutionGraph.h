@@ -310,6 +310,28 @@ public:
 	void addRemainderResolution(uint32_t nNewClauseId, CRef ref);
     void getClausesCones(vec<uint32_t>& cone);
 
+    //FIXME
+    //add a method get unsat core. which takes a parent of an empty clause which represents a starting point.
+
+    // add a method which takes a set of uids and deletes their nodes.
+
+    //add parents to empty clauses as vector.
+
+    //add a method which takes a node and deletes it and it's cone.
+
+    //add a flag which determine whether to use RGraph or not. as long as it's on we make all the updates.
+
+    //support reverse iteration.
+
+    /// :::hakhee 7ashoov::: kesheyotreem psokeet 7adasha rak em ze ic maktseem ba grtaph ve em ze lo ic az lo mosefem la graph (only to the solver) afterwards if this clause becomes a parent to ic we want to give it uid and put it in the graph, meaning we need to delete the clause from the system and to re-enter it as a parent to ic (to the solver and the graph)
+
+    //add delayedRemoval uid->vec<lit> , implement in a new class.
+
+    //in case we delete learnt clause, we add the vec<lit> to delayedRemoval and we keep the node in the graph.
+
+    //if we delete a clause (not learnt) from the system we also delete it from the graph and it's cone.
+
+
     CRef getClauseRef(uint32_t nUid) const {
         return uidToData[nUid].clauseRef;
     }
@@ -339,9 +361,6 @@ public:
     uint32_t getMaxUid() const{
         return uidToData.size();
     }
-
-    //FIXME what the fuck is this? anekak???? Set<uint32_t> m_icPoEC;
-    //std::unordered_map<uint32_t, vec<Lit>*>  icDelayedRemoval;
 
 	struct Pair
     {
